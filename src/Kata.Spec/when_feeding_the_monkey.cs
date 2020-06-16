@@ -41,7 +41,18 @@ namespace Kata.Spec
         static Calculator _systemUnderTest;
         static int _result;
     }
+
     // Given the user input is two numbers when calculating the sum then it should return the sum of those numbers. (example "1,2" should equal 3)
+    public class when_input_is_two_numbers
+    {
+        Establish _context = () => { _systemUnderTest = new Calculator(); };
+
+        Because of = () => { _result = _systemUnderTest.Add("1,2"); };
+
+        It should_return_the_sum = () => { _result.Should().Be(3); };
+        static Calculator _systemUnderTest;
+        static int _result;
+    }
     // Given the user input is an unknown amount of numbers when calculating the sum then it should return the sum of all the numbers. (example "1,2,3" should equal 6)
     // Given the user input is multiple numbers with new line and comma delimiters when calculating the sum then it should return the sum of all the numbers. (example "1\n2,3" should equal 6)
     // Given the user input is multiple numbers with a custom single-character delimiter when calculating the sum then it should return the sum of all the numbers. (example “//;\n1;2” should return 3)
